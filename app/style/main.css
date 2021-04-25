@@ -1,4 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Zen+Dots&display=swap');
+
 html {
     background-color: #C5EDEA;
     color: #5B6E6C;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.color {
+    color: #7FF0E8;
+}
+
+body {
+    border-radius: 32px;
+}
+
+.title-bar {
+    font-family: 'Zen Dots', cursive;
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+    background-color: #3A6E6A;
+    min-height: 48px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 48px;
+    text-align: right;
+    color: #9BBAB8;
+}
+
+.title {
+    text-align: left;
+    float: left;
+}
+.material-icons.menu-icon {
+	font-size: 48px;
+    -webkit-app-region: no-drag;
 }
