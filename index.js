@@ -5,14 +5,10 @@ function createWindow() {
     const win = new BrowserWindow({
         width: screen.getPrimaryDisplay().size.width/1.2,
         height: screen.getPrimaryDisplay().size.height/1.2,
-        minWidth: 640,
-        minHeight: 480,
-        webPreferences: {
-            nodeIntegration: true
-        },
+        minWidth: 800,
+        minHeight: 450,
         backgroundColor: "#C5EDEA",
-        title: "Lainan",
-        frame: false
+        title: "Lainan"
     });
 
     win.setMenu(null);
