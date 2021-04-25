@@ -1,0 +1,2 @@
+# lainan-desktop
+Lainanのデスクトップアプリケーション
