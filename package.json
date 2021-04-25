@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/TarochanChannel/lainan-desktop/issues"
   },
-  "homepage": "https://github.com/TarochanChannel/lainan-desktop#readme"
+  "homepage": "https://github.com/TarochanChannel/lainan-desktop#readme",
+  "dependencies": {
+    "electron": "^12.0.5"
+  }
 }
