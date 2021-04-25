@@ -1,0 +1,19 @@
+{
+  "name": "lainan-desktop",
+  "version": "0.0.1",
+  "description": "Lainanのデスクトップアプリケーション",
+  "main": "index.js",
+  "scripts": {
+    "test": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TarochanChannel/lainan-desktop.git"
+  },
+  "author": "Renorari",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TarochanChannel/lainan-desktop/issues"
+  },
+  "homepage": "https://github.com/TarochanChannel/lainan-desktop#readme"
+}
