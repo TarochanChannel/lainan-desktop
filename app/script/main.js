@@ -1,3 +1,7 @@
+$(() => {
+    new Audio("sound/startup.mp3").play();
+});
+
 $.getJSON("https://api.lainan.one/?msg=こんにちは", (data) => {
     document.getElementById("reaction").innerHTML = data.reaction;
 });
