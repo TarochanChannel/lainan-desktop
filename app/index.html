@@ -2,28 +2,20 @@
 <html>
 
 <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/font_size.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="script/main.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
-    <div class="nav">
-        <h1 class="no-m">Lainan</h1>
-    </div>
-    <div class="nav-space"></div>
-    <div class="view">
-        <div class="center reaction" id="reaction">
-            こんちゃー
+    <div class="flex_container">
+        <div class="content" id="content"></div>
+        <div class="input">
+            <form onsubmit="send(document.getElementById('message').value); return false;">
+                <input type="text" id="message" placeholder="メッセージを送信" autofocus>
+            </form>
         </div>
-        <form onsubmit="getreac();return false;" class="input">
-            <input type="text" id="text" class="input_text" />
-            <a href="#" onclick="getreac();" class="input-btn"><span
-                    class="material-icons send-btn">send</span></a>
-        </form>
     </div>
 </body>
 

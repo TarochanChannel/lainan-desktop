@@ -1,7 +1,109 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+:root {
+    --bg: #16161a;
+    --hl: #fffffe;
+    --text: #94a1b2;
+    --btn: #7f5af0;
+    --btn_bg: #7f5af080;
+    --btn_hv: #7f5af0c0;
+    --btn_text: #fffffe;
+    --acent: #2cb67d;
+    --acent_hv: #2cb67dc0;
+}
+
+:root[theme="light"] {
+    --bg: #fffffe;
+    --hl: #094067;
+    --text: #5f6c7b;
+    --btn: #3da9fc;
+    --btn_bg: #3da9fc80;
+    --btn_hv: #3da9fcc0;
+    --btn_text: #fffffe;
+    --acent: #ef4565;
+    --acent_hv: #ef4565c0;
+}
 
 body {
+    background: var(--bg);
+    color: var(--text);
     font-family: 'Noto Sans JP', sans-serif;
+}
+
+::selection {
+    text-shadow: 0 0 8px var(--acent);
+}
+
+.container {
+    width: 96%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+hr {
+    border: 1px solid var(--acent);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--hl);
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    /*border-radius: 4px;
+    box-shadow: 0 0 4px var(--acent) inset;*/
+    display: none;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: var(--acent);
+}
+
+a:not(.default) {
+    border-radius: 8px;
+    background: var(--btn_bg);
+    color: var(--btn_text);
+    text-decoration: none;
+    padding: 0 2px;
+    transition: all 0.2s;
+}
+
+a:not(.default):hover {
+    border-radius: 8px;
+    background: var(--btn_hv);
+    color: var(--btn_text);
+    text-decoration: none;
+    padding: 0 2px;
+}
+
+a:not(.default):active {
+    border-radius: 8px;
+    background: var(--btn);
+    color: var(--btn_text);
+    text-decoration: none;
+    padding: 0 2px;
+}
+
+.effect-fade {
+    opacity: 0;
+    transform: translate(0, 40vh);
+    transition: all 0.8s;
+}
+
+.effect-scroll {
+    opacity: 1;
+    transform: translate(0, 0);
 }
 
 @media only screen and (min-width:360px) {

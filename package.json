@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/TarochanChannel/lainan-desktop#readme",
   "dependencies": {
-    "electron": "^12.0.5"
+    "electron": "^11.4.6",
+    "jquery": "^3.6.0"
   }
 }
