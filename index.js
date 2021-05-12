@@ -1,5 +1,5 @@
 const { app, BrowserWindow, screen, nativeTheme, ipcMain } = require('electron');
-const path = require('path');
+const { exists } = require('original-fs');
 
 function createWindow() {
     const win = new BrowserWindow({
@@ -11,14 +11,28 @@ function createWindow() {
             nodeIntegration: true
         },
         backgroundColor: "#808080",
-        title: "Lainan"
+        title: "Lainan",
+        frame: false
     });
 
     win.setMenu(null);
     win.loadFile('app/index.html');
-    win.openDevTools();
+    //win.openDevTools();
     ipcMain.on('onload', (event, arg) => {
         event.reply("theme", (nativeTheme.shouldUseDarkColors) ? "dark" : "light");
+    });
+    ipcMain.on("close", (event, arg) => {
+        win.close();
+    });
+    ipcMain.on("maximize", (event, arg) => {
+        if (win.isMaximized()) {
+            win.unmaximize();
+        } else {
+            win.maximize();
+        };
+    });
+    ipcMain.on("minimize", (event, arg) => {
+        win.minimize();
     });
 };
 

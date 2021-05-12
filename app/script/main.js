@@ -3,7 +3,8 @@ const startup_sound = new Audio("sound/startup.mp3");
 const send_sound = new Audio("sound/send.mp3");
 const reaction_sound = new Audio("sound/reaction.mp3");
 const error_sound = new Audio("sound/error.mp3");
-const { ipcRenderer } = require("electron");
+const { ipcRenderer, shell } = require("electron");
+//var chat = localStorage.getItem("config")?JSON.parse(localStorage.getItem("config")):{};
 
 $(function () {
     startup_sound.play();
@@ -11,7 +12,7 @@ $(function () {
     ipcRenderer.on("theme", (e, arg) => {
         document.documentElement.setAttribute("theme", arg);
     });
-    $(window).scroll(function () {
+    /*$(window).scroll(function () {
         $(".effect-fade").each(function () {
             var elemPos = $(this).offset().top;
             var scroll = $(window).scrollTop();
@@ -21,17 +22,27 @@ $(function () {
             }
         });
     });
-    jQuery(window).scroll();
+    jQuery(window).scroll();*/
+    $("#maximize_btn").on("click", () => {
+        ipcRenderer.send("maximize");
+    });
+    $("#minimize_btn").on("click", () => {
+        ipcRenderer.send("minimize");
+    });
+    $("#close_btn").on("click", () => {
+        ipcRenderer.send("close");
+    });
 });
 
 function send(text) {
+    //chat[Object.keys(chat).length + 1] = {"user": "user","content": text};
     send_sound.play();
     $.getJSON("https://api.lainan.one/?msg=" + text, (data) => {
-        reaction_sound.play();
         document.getElementById("message").value = "";
-        document.getElementById("content").innerHTML = data.reaction;
-        if (data.reaction.length >= 15) {
-            document.getElementById("content").style.fontSize = "1em";
-        };
+        var temp = document.getElementById("content").innerHTML;
+        document.getElementById("content").innerHTML = `${temp}\n<div class="message" user="user">${text}</div>\n<div class="message" user="lainan">${data.reaction}</div>`;
+        //chat[Object.keys(chat).length + 1] = {"user": "lainan","content": data.reaction};
+        reaction_sound.play();
+        //localStorage.setItem("config",JSON.stringify(chat));
     });
 };

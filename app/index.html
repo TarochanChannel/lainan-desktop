@@ -9,8 +9,22 @@
 </head>
 
 <body>
+    <div id="titlebar">
+        Lainan
+    </div>
+    <div id="titlebutton">
+        <img src="icons/maximize.svg" class="t-btn" id="maximize_btn">
+        <img src="icons/minimize.svg" class="t-btn" id="minimize_btn">
+        <img src="icons/close.svg" class="t-btn" id="close_btn">
+        
+        
+    </div>
     <div class="flex_container">
-        <div class="content" id="content"></div>
+        <div class="content" id="content">
+            <div class="message" user="card" onclick="document.getElementById('teams_card').remove()" id="teams_card"><a
+                    onclick="shell.openExternal('https://lainan.one/teams.html')">利用規約</a>に同意していただいた後にこのアプリケーションをご利用ください。
+            </div>
+        </div>
         <div class="input">
             <form onsubmit="send(document.getElementById('message').value); return false;">
                 <input type="text" id="message" placeholder="メッセージを送信" autofocus>

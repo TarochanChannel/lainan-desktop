@@ -2,6 +2,7 @@
     --bg: rgba(255, 255, 255, 0.5);
     --text: #263238;
 }
+
 :root[theme=dark] {
     --bg: rgba(0, 0, 0, 0.5);
     --text: #eceff1;
@@ -20,6 +21,59 @@ body {
 html {
     padding: 0;
     margin: 0;
+}
+
+::selection {
+    text-shadow: 0px 0px 4px rgba(255, 255, 255, 1);
+}
+
+#titlebar {
+    position: fixed;
+    z-index: 9998;
+    display: block;
+    top: 0px;
+    left: 0px;
+    -webkit-app-region: drag;
+    background: var(--bg);
+    backdrop-filter: blur(12px) brightness(2);
+    border-radius: 0px 0px 8px 0px;
+    height: 48px;
+    margin: 0px;
+    padding: 4px;
+    border: 1px solid var(--bg);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#titlebar::selection {
+    text-shadow: none;
+}
+
+#titlebutton {
+    position: fixed;
+    z-index: 9999;
+    display: block;
+    top: 0px;
+    right: 0px;
+    background: var(--bg);
+    backdrop-filter: blur(12px) brightness(2);
+    border-radius: 0px 0px 0px 8px;
+    height: 24px;
+    width: 72px;
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid var(--bg);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: right;
+    font-size: 16px;
+}
+
+.t-btn {
+    -webkit-app-region: nodrag;
+    height: 16px;
+    width: 16px;
+    margin: 4px 4px 0px 0px;
 }
 
 
@@ -71,8 +125,32 @@ html {
     padding: 4px;
     overflow: scroll;
     border: 1px solid var(--bg);
-    font-size: 2em;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message {
+    width: 48%;
+    background: var(--bg);
+    backdrop-filter: blur(12px) brightness(2);
+    border: 1px solid var(--bg);
+    box-shadow: 2px 2px 4px rgba(0, 128, 255, 0.1);
+}
+
+.message[user="lainan"] {
+    border-radius: 2px 8px 8px 8px;
+    margin: 2px 2px auto 2px;
+    transition: all 0.2s;
+}
+
+.message[user="user"] {
+    border-radius: 8px 2px 8px 8px;
+    margin: 2px 2px 2px auto;
+}
+
+.message[user="card"] {
+    width: calc(100% - 4px);
+    border-radius: 8px 8px 8px 8px;
+    margin: 2px auto;
 }
 
 .input {
