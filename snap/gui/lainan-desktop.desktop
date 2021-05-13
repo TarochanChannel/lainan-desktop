@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Lainan Desktop
+Comment=Lainan Desktop
+Exec=lainan-desktop
+Icon=${SNAP}/meta/gui/icon_pngs/icon.png
+Terminal=false
+Categories=lainan;lainanapi

@@ -12,7 +12,8 @@ function createWindow() {
         },
         backgroundColor: "#808080",
         title: "Lainan",
-        frame: false
+        frame: false,
+        icon: "icon_pngs/icon.png"
     });
 
     win.setMenu(null);

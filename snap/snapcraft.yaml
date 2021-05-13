@@ -1,0 +1,66 @@
+name: lainan-desktop
+title: "Lainan Desktop"
+base: core18
+version: "0.0.2"
+license: "MIT"
+summary: Lainan Desktop
+description: |
+  _Lainan Desktop_
+
+  Lainanの完全Desktop版がついにリリース！
+
+  Linux版は、SnapStoreで。
+  Windows版は、公式サイトにて配布予定。
+
+  ぜひ、毎日お使いくださいね！
+icon: "icon.svg"
+grade: stable
+confinement: strict
+
+apps:
+  lainan-desktop:
+    command: lainan-desktop/lainan-desktop --no-sandbox
+    extensions: [gnome-3-34]
+    plugs:
+    - desktop
+    - desktop-legacy
+    - wayland
+    - unity7
+    - alsa
+    - avahi-observe
+    - browser-support
+    - camera
+    - cups-control
+    - gsettings
+    - home
+    - network
+    - opengl
+    - audio-playback
+    - screen-inhibit-control
+    - upower-observe
+    environment:
+      TMPDIR: $XDG_RUNTIME_DIR
+
+parts:
+  lainan-desktop:
+    plugin: nil
+    source: app/
+    override-build: |
+        export ELECTRON_GET_USE_PROXY=1
+        export GLOBAL_AGENT_HTTP_PROXY="${http_proxy}"
+        export GLOBAL_AGENT_HTTPS_PROXY="${http_proxy}"
+        npm install electron electron-packager
+        npx electron-packager . --overwrite --platform=linux --output=release-build --prune=true
+        cp -rv ./lainan-desktop-linux-* $SNAPCRAFT_PART_INSTALL/lainan-desktop
+        # npm i electron electron-builder
+        # npm run pack
+        # mkdir $SNAPCRAFT_PART_INSTALL/lainan-desktop
+        # cd release-builds/*/
+        # mv * $SNAPCRAFT_PART_INSTALL/lainan-desktop
+    build-snaps:
+    - node/14/stable
+    build-packages:
+    - unzip
+    stage-packages:
+    - libnss3
+    - libnspr4
