@@ -44,13 +44,13 @@ apps:
 parts:
   lainan-desktop:
     plugin: nil
-    source: app/
+    source: .
     override-build: |
         export ELECTRON_GET_USE_PROXY=1
         export GLOBAL_AGENT_HTTP_PROXY="${http_proxy}"
         export GLOBAL_AGENT_HTTPS_PROXY="${http_proxy}"
         npm install
-        npx electron-builder . -l
+        npx electron-builder -l
         cp -rv ./dist/linux-* $SNAPCRAFT_PART_INSTALL/lainan-desktop
     build-snaps:
     - node/14/stable
