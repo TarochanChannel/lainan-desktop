@@ -1,5 +1,4 @@
 const { app, BrowserWindow, screen, nativeTheme, ipcMain } = require('electron');
-const { exists } = require('original-fs');
 
 function createWindow() {
     const win = new BrowserWindow({

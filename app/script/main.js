@@ -6,6 +6,11 @@ const error_sound = new Audio("sound/error.mp3");
 const { ipcRenderer, shell } = require("electron");
 //var chat = localStorage.getItem("config")?JSON.parse(localStorage.getItem("config")):{};
 
+window.onerror = async (message, file, lineNo, colNo, error) => {
+    await error_sound.play();
+    alert(`エラーが発生しました。\n\nDiscordで開発者へこのスクリーンショットを送信してください。\nhttps://discord.gg/FrRbqXWzpC \n\n\nメッセージ: ${message}\nファイル: ${file}\n${lineNo}行 ${colNo}文字\nエラー: ${error}`);
+};
+
 $(function () {
     startup_sound.play();
     ipcRenderer.send("onload");

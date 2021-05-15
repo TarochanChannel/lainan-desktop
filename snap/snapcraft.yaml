@@ -22,22 +22,9 @@ apps:
     command: lainan-desktop/lainan-desktop --no-sandbox
     extensions: [gnome-3-34]
     plugs:
-    - desktop
-    - desktop-legacy
-    - wayland
-    - unity7
-    - alsa
-    - avahi-observe
     - browser-support
-    - camera
-    - cups-control
-    - gsettings
-    - home
     - network
-    - opengl
-    - audio-playback
-    - screen-inhibit-control
-    - upower-observe
+    - network-bind
     environment:
       TMPDIR: $XDG_RUNTIME_DIR
 
