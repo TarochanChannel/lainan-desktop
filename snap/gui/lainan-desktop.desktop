@@ -6,4 +6,4 @@ Comment=Lainan Desktop
 Exec=lainan-desktop
 Icon=${SNAP}/meta/gui/icon.png
 Terminal=false
-Categories=entertainment,utilities
+Categories=Entertainment,Utilities
