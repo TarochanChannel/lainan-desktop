@@ -2,9 +2,9 @@ window.jQuery = window.$ = require('jquery');
 const startup_sound = new Audio("sound/startup.mp3");
 const send_sound = new Audio("sound/send.mp3");
 const reaction_sound = new Audio("sound/reaction.mp3");
+const timer_sound = new Audio("sound/timer.mp3");
 const error_sound = new Audio("sound/error.mp3");
 const { ipcRenderer, shell } = require("electron");
-//var chat = localStorage.getItem("config")?JSON.parse(localStorage.getItem("config")):{};
 
 window.onerror = async (message, file, lineNo, colNo, error) => {
     await error_sound.play();
@@ -17,17 +17,6 @@ $(function () {
     ipcRenderer.on("theme", (e, arg) => {
         document.documentElement.setAttribute("theme", arg);
     });
-    /*$(window).scroll(function () {
-        $(".effect-fade").each(function () {
-            var elemPos = $(this).offset().top;
-            var scroll = $(window).scrollTop();
-            var windowHeight = $(window).height();
-            if (scroll > elemPos - windowHeight) {
-                $(this).addClass("effect-scroll");
-            }
-        });
-    });
-    jQuery(window).scroll();*/
     $("#maximize_btn").on("click", () => {
         ipcRenderer.send("maximize");
     });
@@ -40,14 +29,18 @@ $(function () {
 });
 
 function send(text) {
-    //chat[Object.keys(chat).length + 1] = {"user": "user","content": text};
     send_sound.play();
     $.getJSON("https://api.lainan.one/?msg=" + text, (data) => {
         document.getElementById("message").value = "";
-        var temp = document.getElementById("content").innerHTML;
-        document.getElementById("content").innerHTML = `${temp}\n<div class="message" user="user">${text}</div>\n<div class="message" user="lainan">${data.reaction}</div>`;
-        //chat[Object.keys(chat).length + 1] = {"user": "lainan","content": data.reaction};
+        if (data.extensions.timer.IsMsgTimer) {
+            document.getElementById("content").innerHTML = `${document.getElementById("content").innerHTML}\n<div class="message" user="user">${text}</div>\n<div class="message" user="lainan">${data.extensions.timer.timer_start}</div>`;
+            setTimeout(() => {
+                document.getElementById("content").innerHTML = `${document.getElementById("content").innerHTML}\n<div class="message" user="lainan">${data.extensions.timer.timer_end}</div>`;
+                timer_sound.play();
+            }, data.extensions.timer.timer_ms);
+        } else {
+            document.getElementById("content").innerHTML = `${document.getElementById("content").innerHTML}\n<div class="message" user="user">${text}</div>\n<div class="message" user="lainan">${data.reaction}</div>`;
+        };
         reaction_sound.play();
-        //localStorage.setItem("config",JSON.stringify(chat));
     });
 };
