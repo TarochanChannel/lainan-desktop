@@ -117,7 +117,7 @@ html {
     border-radius: 8px;
     max-width: 1280px;
     width: 96%;
-    flex-grow: 11;
+    flex-grow: 1;
     align-self: stretch;
     order: 0;
     margin: 4px auto;
@@ -161,7 +161,6 @@ html {
     height: 4vh;
     max-width: 1280px;
     width: 96%;
-    flex-grow: 1;
     align-self: stretch;
     order: 1;
     margin: 4px auto;

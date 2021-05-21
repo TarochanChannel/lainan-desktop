@@ -4,7 +4,8 @@
   "description": "Lainanのデスクトップアプリケーション",
   "main": "index.js",
   "scripts": {
-    "test": "electron ."
+    "test": "electron .",
+    "build": "electron-builder"
   },
   "repository": {
     "type": "git",

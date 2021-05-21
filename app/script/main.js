@@ -2,6 +2,7 @@ window.jQuery = window.$ = require('jquery');
 const startup_sound = new Audio("sound/startup.mp3");
 const send_sound = new Audio("sound/send.mp3");
 const reaction_sound = new Audio("sound/reaction.mp3");
+const pop_sound = new Audio("sound/pop.mp3");
 const timer_sound = new Audio("sound/timer.mp3");
 const error_sound = new Audio("sound/error.mp3");
 const { ipcRenderer, shell } = require("electron");
