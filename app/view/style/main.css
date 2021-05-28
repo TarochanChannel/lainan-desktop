@@ -116,7 +116,7 @@ html {
     backdrop-filter: blur(12px) brightness(2);
     border-radius: 8px;
     max-width: 1280px;
-    width: 96%;
+    width: 92%;
     flex-grow: 1;
     align-self: stretch;
     order: 0;
@@ -160,7 +160,7 @@ html {
     min-height: 64px;
     height: 4vh;
     max-width: 1280px;
-    width: 96%;
+    width: 92%;
     align-self: stretch;
     order: 1;
     margin: 4px auto;
