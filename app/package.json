@@ -7,6 +7,14 @@
     "test": "electron .",
     "build": "electron-builder"
   },
+  "build": {
+    "appId": "one.lainan.app",
+    "productName":"Lainan Desktop",
+    "copyright": "(c) 2021 れのらり",
+    "win": {
+      "icon": "icon.ico"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TarochanChannel/lainan-desktop.git"
@@ -21,7 +29,7 @@
     "jquery": "^3.6.0"
   },
   "devDependencies": {
-    "electron": "^11.4.6",
+    "electron": "^11.4.9",
     "electron-builder": "^22.11.3"
   }
 }
