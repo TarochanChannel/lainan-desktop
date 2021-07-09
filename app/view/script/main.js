@@ -64,6 +64,9 @@ function send(text) {
             reaction_sound.play();
             document.getElementById("message").setAttribute("placeholder", "メッセージを送信");
             document.getElementById("message").removeAttribute("disabled");
+            $("#content").animate(
+                { scrollTop: $("#content").get(0).scrollHeight },
+            );
         },
         timeout: 10000
     });
