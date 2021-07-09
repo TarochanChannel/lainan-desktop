@@ -1,7 +1,7 @@
 name: lainan-desktop
 title: "Lainan Desktop"
 base: core18
-version: "0.0.3.1"
+version: "0.0.3.2.1"
 license: "MIT"
 summary: Lainan Desktop
 description: |
