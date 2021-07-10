@@ -9,7 +9,7 @@
   },
   "build": {
     "appId": "one.lainan.app",
-    "productName":"Lainan Desktop",
+    "productName": "Lainan Desktop",
     "copyright": "(c) 2021 れのらり",
     "win": {
       "icon": "icon.ico"
@@ -30,6 +30,6 @@
   },
   "devDependencies": {
     "electron": "^11.4.9",
-    "electron-builder": "^22.11.3"
+    "electron-builder": "^22.11.7"
   }
 }

@@ -4,8 +4,8 @@ function createWindow() {
     const win = new BrowserWindow({
         width: screen.getPrimaryDisplay().size.width / 1.2,
         height: screen.getPrimaryDisplay().size.height / 1.2,
-        minWidth: 800,
-        minHeight: 450,
+        minWidth: 400,
+        minHeight: 225,
         webPreferences: {
             nodeIntegration: true
         },

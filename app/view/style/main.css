@@ -145,12 +145,14 @@ html {
 .message[user="user"] {
     border-radius: 8px 2px 8px 8px;
     margin: 2px 2px 2px auto;
+    transition: all 0.2s;
 }
 
 .message[user="card"] {
     width: calc(100% - 4px);
     border-radius: 8px 8px 8px 8px;
     margin: 2px auto;
+    transition: all 0.2s;
 }
 
 .input {
