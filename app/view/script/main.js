@@ -44,6 +44,7 @@ function send(text) {
     document.getElementById("message").setAttribute("placeholder", "送信中...");
     document.getElementById("message").setAttribute("disabled", "");
     document.getElementById("content").innerHTML = `${document.getElementById("content").innerHTML}\n<div class="message" user="user">${text}</div>`;
+    $("#content").animate({ scrollTop: $("#content").get(0).scrollHeight });
     $.ajax({
         url: "https://api.lainan.one/?msg=" + text,
         type: "GET",
@@ -64,9 +65,7 @@ function send(text) {
             reaction_sound.play();
             document.getElementById("message").setAttribute("placeholder", "メッセージを送信");
             document.getElementById("message").removeAttribute("disabled");
-            $("#content").animate(
-                { scrollTop: $("#content").get(0).scrollHeight },
-            );
+            $("#content").animate({ scrollTop: $("#content").get(0).scrollHeight });
         },
         timeout: 10000
     });
