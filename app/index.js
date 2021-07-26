@@ -21,6 +21,7 @@ function createWindow() {
     ipcMain.on('onload', (event, arg) => {
         event.reply("theme", (nativeTheme.shouldUseDarkColors) ? "dark" : "light");
     });
+
     ipcMain.on("close", (event, arg) => {
         win.close();
     });
@@ -33,6 +34,13 @@ function createWindow() {
     });
     ipcMain.on("minimize", (event, arg) => {
         win.minimize();
+    });
+    ipcMain.on("goside", (event, arg) => {
+        if (win.isMaximized()) {
+            win.unmaximize();
+        };
+        win.setSize(400, screen.getPrimaryDisplay().size.height, true);
+        win.setPosition(screen.getPrimaryDisplay().size.width - 400, 0, true);
     });
 };
 

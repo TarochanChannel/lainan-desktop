@@ -60,7 +60,7 @@ html {
     backdrop-filter: blur(12px) brightness(2);
     border-radius: 0px 0px 0px 8px;
     height: 24px;
-    width: 72px;
+    width: 96px;
     margin: 0px;
     padding: 0px;
     border: 1px solid var(--bg);
@@ -136,6 +136,18 @@ html {
     box-shadow: 2px 2px 4px rgba(0, 128, 255, 0.1);
 }
 
+@media only screen and (max-width:420px) {
+    .message {
+        width: 96%;
+    }
+}
+
+@media only screen and (min-width:420px) {
+    .message {
+        width: 48%;
+    }
+}
+
 .message[user="lainan"] {
     border-radius: 2px 8px 8px 8px;
     margin: 2px 2px auto 2px;
@@ -182,4 +194,13 @@ html {
     outline: none;
     font-size: 1em;
     color: var(--text);
+}
+
+#version {
+    font-size: 16px;
+    font-family: 'Ubuntu', sans-serif;
+    position: fixed;
+    z-index: -9999;
+    bottom: 4px;
+    right: 4px;
 }
