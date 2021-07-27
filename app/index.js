@@ -18,9 +18,6 @@ function createWindow() {
     win.setMenu(null);
     win.loadFile('view/index.html');
     //win.openDevTools();
-    ipcMain.on('onload', (event, arg) => {
-        event.reply("theme", (nativeTheme.shouldUseDarkColors) ? "dark" : "light");
-    });
 
     ipcMain.on("close", (event, arg) => {
         win.close();

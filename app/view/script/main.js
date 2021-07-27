@@ -6,7 +6,7 @@ const pop_sound = new Audio("sound/pop.mp3");
 const timer_sound = new Audio("sound/timer.mp3");
 const error_sound = new Audio("sound/error.mp3");
 const { ipcRenderer, shell } = require("electron");
-const version = "0.0.3.4";
+const version = "0.0.3.4.1";
 
 window.onerror = async (message, file, lineNo, colNo, error) => {
     await error_sound.play();
@@ -23,10 +23,6 @@ function say(text) {
 
 $(function () {
     startup_sound.play();
-    ipcRenderer.send("onload");
-    ipcRenderer.on("theme", (e, arg) => {
-        document.documentElement.setAttribute("theme", arg);
-    });
     document.getElementById("version").innerHTML = `v ${version}`;
     $("#goside_btn").on("click", () => {
         ipcRenderer.send("goside");
