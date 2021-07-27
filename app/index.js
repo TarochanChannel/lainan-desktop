@@ -5,7 +5,7 @@ function createWindow() {
         width: screen.getPrimaryDisplay().size.width / 1.2,
         height: screen.getPrimaryDisplay().size.height / 1.2,
         minWidth: 400,
-        minHeight: 225,
+        minHeight: 720,
         webPreferences: {
             nodeIntegration: true
         },

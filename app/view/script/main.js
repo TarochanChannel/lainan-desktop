@@ -6,7 +6,7 @@ const pop_sound = new Audio("sound/pop.mp3");
 const timer_sound = new Audio("sound/timer.mp3");
 const error_sound = new Audio("sound/error.mp3");
 const { ipcRenderer, shell } = require("electron");
-const version = "0.0.3.3";
+const version = "0.0.3.4";
 
 window.onerror = async (message, file, lineNo, colNo, error) => {
     await error_sound.play();
@@ -39,6 +39,32 @@ $(function () {
     });
     $("#close_btn").on("click", () => {
         ipcRenderer.send("close");
+    });
+
+    $.ajax({
+        "url": "https://raw.githubusercontent.com/TarochanChannel/lainan-desktop/main/last_release",
+        "type": "GET",
+        "success": async (data) => {
+            var v_score = 0, d_score = 0;
+            const v = version.split(".");
+            const d = data.split(".");
+            if (v.length >= d.length) {
+                d.forEach((val, ind) => {
+                    if (Number(v[ind]) < Number(val)) d_score = + 1;
+                    if (Number(v[ind]) > Number(val)) v_score = + 1;
+                });
+            } else if (v.length < d.length) {
+                for (let index = 0; index < (d.length - v.length); index++) {
+                    v.push("0");
+                };
+                d.forEach((val, ind) => {
+                    if (Number(v[ind]) < Number(val)) d_score = + 1;
+                    if (Number(v[ind]) > Number(val)) v_score = + 1;
+                });
+            };
+            console.log(`${v_score},${d_score}`)
+            if (v_score < d_score) new_modal("update", "更新があります", `Laiann Desktop v${data}がリリースされました。<br>今すぐ新しいバージョンに更新してください。<br><br><small>現在のバージョンは、v${version}です。</small>`);
+        }
     });
 });
 
@@ -73,4 +99,20 @@ function send(text) {
         },
         timeout: 10000
     });
+};
+
+function new_modal(_modal_id, _modal_title, _modal_content) {
+    var _modal = document.createElement("div");
+    _modal.setAttribute("id", _modal_id + "_modal");
+    _modal.classList.add("modal");
+    _modal.innerHTML = `<h3 id="${_modal_id}_modal_title">${_modal_title}</h3><div id="${_modal_id}_modal_content">${_modal_content}</div>`;
+    document.body.appendChild(_modal);
+    return _modal_id;
+};
+
+function delete_modal(_modal_id) {
+    $("#" + _modal_id + "_modal").fadeOut("0.2");
+    setTimeout(() => {
+        document.getElementById(_modal_id + "_modal").remove();
+    }, 200);
 };
