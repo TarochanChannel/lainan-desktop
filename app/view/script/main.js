@@ -63,7 +63,7 @@ $(function () {
                 });
             };
             console.log(`${v_score},${d_score}`)
-            if (v_score < d_score) new_modal("update", "更新があります", `Laiann Desktop v${data}がリリースされました。<br>今すぐ新しいバージョンに更新してください。<br><br><small>現在のバージョンは、v${version}です。</small>`);
+            if (v_score < d_score) new_modal("update", "更新があります", `Laiann Desktop v${data}がリリースされました。<br>今すぐ新しいバージョンに更新してください。<br><br>Windows版の詳しいアップデート方法は、<u onclick="shell.openExternal('https://github.com/TarochanChannel/lainan-desktop/blob/main/how_to_update_for_windows.md')">こちら</u>をご覧ください。<br><br><small>現在のバージョンは、v${version}です。</small>`);
         }
     });
 });
